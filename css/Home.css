@@ -1,0 +1,18 @@
+.color-ig {
+  background: linear-gradient(to bottom left, #9b37ba, #fed16e);
+  background: -webkit-linear-gradient(to bottom left, #9b37ba, #fed16e);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.cart-count {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  top: -4px;
+  right: -10px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+}
