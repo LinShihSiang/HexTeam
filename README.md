@@ -4,23 +4,11 @@
 
 Node.js: 20.11.0
 
-## 使用者故事
+## [使用者故事](https://www.notion.so/2-e7de6d90ffd249ceb7f001eef2f2dba2)
 
-```bash
-https://www.notion.so/2-e7de6d90ffd249ceb7f001eef2f2dba2
-```
+## [網站地圖](https://drive.google.com/file/d/1ghtwKVur1D3N_2wFxSlSnoBBE1TP8q4G/view?usp=sharing)
 
-## 網站地圖
-
-```bash
-https://drive.google.com/file/d/1ghtwKVur1D3N_2wFxSlSnoBBE1TP8q4G/view?usp=sharing
-```
-
-## 設計師稿
-
-```bash
-https://www.figma.com/file/1FDrd5aZAHG5EoZeyajhVd/%E5%85%AD%E8%A7%92_%E6%84%9B%E8%9C%82%E5%9D%8A?type=design&node-id=0-1&mode=design
-```
+## [設計師稿](https://www.figma.com/file/1FDrd5aZAHG5EoZeyajhVd/%E5%85%AD%E8%A7%92_%E6%84%9B%E8%9C%82%E5%9D%8A?type=design&node-id=0-1&mode=design)
 
 ## 套件
 
