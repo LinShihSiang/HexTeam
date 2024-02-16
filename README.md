@@ -1,55 +1,25 @@
-# 六角學院 Vue 樣板
+# 愛蜂坊專題
 
-> 這是六角學院的 Vue 樣板，是基於 Vite 所建立的專案。
+## 環境配置
 
-Node.js 版本建議為：18.17.1 以上
+Node.js: 20.11.0
 
-## 安裝與使用
-
-以下將會引導你如何安裝此專案到你的電腦上。
-
-### 取得專案
+## 使用者故事
 
 ```bash
-git clone https://github.com/hexschool/vite-template.git
+https://www.notion.so/2-e7de6d90ffd249ceb7f001eef2f2dba2
 ```
 
-### 移動到專案資料夾
+## 網站地圖
 
 ```bash
-cd vite-template
+https://drive.google.com/file/d/1ghtwKVur1D3N_2wFxSlSnoBBE1TP8q4G/view?usp=sharing
 ```
 
-## 環境變數
-
-請將 `.env.example` 複製一份並命名為 `.env`，並將裡面的環境變數設定為你的值。
+## 設計師稿
 
 ```bash
-cp .env.example .env
-```
-
-### 安裝套件
-
-```bash
-npm install
-```
-
-### 啟動開發環境
-
-```bash
-npm run dev
-```
-
-### 打包專案
-
-```bash
-npm run build
-```
-
-### 部署專案
-
-```bash
-npm run deploy
+https://www.figma.com/file/1FDrd5aZAHG5EoZeyajhVd/%E5%85%AD%E8%A7%92_%E6%84%9B%E8%9C%82%E5%9D%8A?type=design&node-id=0-1&mode=design
 ```
 
 ## 套件
@@ -98,13 +68,3 @@ npm run deploy
 - `package.json`：專案資訊
 - `README.md`：專案說明
 - `vite.config.js`：Vite 設定檔
-
-## gh-pages 部署說明
-
-內建預設是使用 gh-pages 進行部署，因此只需要在專案根目錄下執行以下指令即可。
-
-```bash
-npm run deploy
-```
-
-（請記得將 `.env` 中的 `REPOSITORY_NAME` 改為你的專案名稱即可。）
