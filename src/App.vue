@@ -1,7 +1,11 @@
 <template>
+
+<div class="container">
   <NavBarComponent></NavBarComponent>
-  <div class="container"> <RouterView /> </div>
+  <div> <RouterView /> </div>
   <FooterComponent></FooterComponent>
+</div>
+
 </template>
 
 <script>

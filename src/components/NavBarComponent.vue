@@ -1,91 +1,88 @@
 <template>
-  <div class="container-fluid bg-light">
-      <div class="row align-middle">
-        <div class="col">
-          <nav class="navbar navbar-expand-lg navbar-light h-100">
-            <div class="container-fluid">
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                  <li class="nav-item" v-for="item in companyGuides" :key="item.id">
-                    <a class="nav-link mx-4" href="#" @click.prevent="item.action">
-                      {{ item.title }}</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-        </div>
-
-        <div class="col text-center">
-          <a class="nav-link p-0" href="#" @click.prevent="logo.action">
-            <img
-              :src="logo.image.url"
-              :alt="logo.title"
-              class="nav-logo"
-            />
-          </a>
-        </div>
-
-        <div class="col">
-          <ul
-            class="list-group list-group-horizontal d-flex justify-content-end h-100"
-          >
-            <li
-              class="list-group-item border-0 px-1 bg-light"
-              :class="{ 'd-none': !enableSearch }"
+  <div class="bee-primary-color header-full">
+    <div class="row h-100">
+      <div class="col">
+        <nav class="navbar navbar-expand-lg navbar-light h-100">
+          <div>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
             >
-              <input
-                class="form-control mt-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-            </li>
-            <li class="list-group-item border-0 d-none d-lg-block px-1 bg-light">
-              <button type="button" class="border-0 bg-light" @click="clickSearch">
-                    <i class="bi bi-search fs-2"></i>
-              </button>
-            </li>
-            <li class="list-group-item border-0 px-1 bg-light">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item me-4"
+                    :class="{'nav-focus': item.focus}"
+                    v-for="item in companyGuides" :key="item.id">
+                  <router-link
+                    class="nav-link text-dark ms-0 fw-bold fs-4"
+                    :to="item.router"
+                    @click.prevent="clickRouter(item.id)">
+                    {{ item.title }}
+                  </router-link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="col text-center align-self-center">
+        <router-link to="/"  @click.prevent="clickRouter(0)">
+          <img
+            :src="logo.url"
+            :alt="logo.title"
+          />
+        </router-link>
+        <span class="h1 ms-4 fw-bold">{{ logo.title }}</span>
+      </div>
+
+      <div class="col">
+        <ul class="list-group list-group-horizontal d-flex justify-content-end h-100 align-items-center">
+          <li class="bee-primary-color list-group-item border-0 pe-0"
+              :class="{ 'd-none': !enableSearch }">
+            <input
+              class="form-control mt-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+          </li>
+          <li class="bee-primary-color list-group-item d-none d-lg-block border-0 pe-0">
+            <button type="button" class="btn-hex" @click="clickSearch">
+              <i class="bi bi-search fs-2"></i>
+            </button>
+          </li>
+          <li class="bee-primary-color list-group-item border-0 pe-0">
+            <div class="position-relative">
               <button
                 type="button"
-                class="border-0 bg-light"
-                @click="clickShoppingCart"
-              >
-                <div class="position-relative">
-                  <i
-                    class="bi fs-2"
-                    :class="{ 'bi-cart': carts.count == 0, 'bi-cart-check-fill': carts.count > 0}"
-                  ></i>
-                  <span
-                    class="cart-count"
-                    :class="{ 'd-none': carts.count == 0 }"
-                  >
-                    {{ cartDisplayQuantity }}
-                  </span>
-                </div>
-              </button>
-            </li>
-          </ul>
-        </div>
+                class="btn-hex"
+                @click="clickShoppingCart">
+                <i class="bi fs-2"
+                  :class="{ 'bi-cart': carts.count == 0, 'bi-cart-check-fill': carts.count > 0 }"></i>
+            </button>
+              <span class="cart-count"
+                  :class="{ 'd-none': carts.count == 0 }">
+                {{ cartDisplayQuantity }}
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { guideType } from '../enums/GuideTypeEnum.js'
+import LogoUrl from '../imgs/Logo.png'
 
 export default {
   data () {
@@ -95,23 +92,20 @@ export default {
           id: 1,
           type: guideType.company,
           title: '蜂蜜產品',
-          action: this.clickProductList
+          router: '/ProductList',
+          focus: false
         },
         {
           id: 2,
           type: guideType.company,
           title: '蜂蜜知識+',
-          action: this.clickKnowledgeList
+          router: '/KnowledgeList',
+          focus: false
         }
       ],
       logo: {
         title: '愛蜂坊',
-        image: {
-          url: 'https://storage.googleapis.com/vue-course-api.appspot.com/mikelin-hexschool/1704824924154.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qwt9ckKeYpsRrZKuQS62FFVuBgRDkHREiNkLvIBkOp1V3yvo8IFsOPFeMJ%2FL97JS7%2FY2OBu8NmS9rpiIj5PVLFAdqj154vlX5yxAOoCG8hacfXOe6TuV7reiwkIUdqSh1wMmlwnVjPNgYyn0BmQl9Hz5mRDKqUyuL0Qvr%2FUeLyRMrXbVY3q3kYZSrNxWmH5JesK%2FCdW4XoxYjNgkrAWc84OGu1gk9D%2BAub4caRXH2yMh9oUh9QzeKzZzSSpB2bLKh4yD1eggSv%2FHw3DAwmJPwGjqA8DtQbnyjCvviMLi2i7%2FTr9fZUfB7xSwkEsO741ou5HVK%2FqGg8cNNXPdEbGenQ%3D%3D',
-          width: 75,
-          height: 75
-        },
-        action: this.clickHomePage
+        url: LogoUrl
       },
       carts: {
         count: 0
@@ -134,15 +128,6 @@ export default {
     }
   },
   methods: {
-    clickProductList () {
-      console.log('click product list')
-    },
-    clickKnowledgeList () {
-      console.log('click knowledge list')
-    },
-    clickHomePage () {
-      console.log('click home page')
-    },
     clickSearch () {
       console.log('click search')
       this.enableSearch = !this.enableSearch
@@ -150,26 +135,40 @@ export default {
     clickShoppingCart () {
       console.log('click shopping cart')
       this.carts.count++
+    },
+    clickRouter (id) {
+      this.guideItems.forEach(element => {
+        if (element.id === id) {
+          element.focus = true
+        } else {
+          element.focus = false
+        }
+      })
     }
   }
 }
 </script>
 
 <style>
-.nav-logo {
-  height: 75px;
-  width: 100px;
-  object-fit: cover;
+.header-full {
+  height: 160px;
+  box-shadow: 0 0 0 100vmax rgba(255, 181, 52, 1);
+  clip-path: inset(0 -100vmax);
+}
+
+.nav-focus {
+  border-radius: 15px;
+  background: white;
 }
 
 .cart-count {
   position: absolute;
   height: 25px;
   width: 25px;
-  top: -4px;
   right: -10px;
   border-radius: 50%;
   background-color: red;
   color: white;
+  text-align: center;
 }
 </style>
