@@ -1,5 +1,5 @@
 <template>
-  <div class="bee-primary-color header-full">
+  <div class="container bee-primary-color header-full">
     <div class="row h-100">
       <div class="col">
         <nav class="navbar navbar-expand-lg navbar-light h-100">
@@ -151,7 +151,7 @@ export default {
 
 <style>
 .header-full {
-  height: 160px;
+  height: 100px;
   box-shadow: 0 0 0 100vmax rgba(255, 181, 52, 1);
   clip-path: inset(0 -100vmax);
 }

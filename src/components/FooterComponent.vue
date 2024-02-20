@@ -1,6 +1,6 @@
 <template>
     <footer>
-      <div class="bee-primary-color footer-full">
+      <div class="container bee-primary-color footer-full">
         <div class="row py-5">
           <div class="col">
             <router-link
